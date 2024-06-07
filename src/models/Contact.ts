@@ -1,15 +1,15 @@
-import { DataTypes, Model, Optional } from "sequelize";
+import { DataTypes, DATE, literal, Model, Optional } from "sequelize";
 import { sequelize } from "../config/db.ts";
 
 interface ContactAttributes {
   id: number;
   phoneNumber?: string;
   email?: string;
-  linkedId?: number;
+  linkedId?: number | null;
   linkPrecedence: "primary" | "secondary";
   createdAt: Date;
   updatedAt: Date;
-  deletedAt?: Date;
+  deletedAt?: Date | null;
 }
 
 interface ContactCreationAttributes extends Optional<ContactAttributes, "id"> {}
@@ -45,7 +45,8 @@ Contact.init(
     },
     linkedId: {
       type: DataTypes.INTEGER.UNSIGNED,
-      allowNull: true
+      allowNull: true,
+      defaultValue: null
     },
     linkPrecedence: {
       type: DataTypes.ENUM("primary", "secondary"),
@@ -63,7 +64,8 @@ Contact.init(
     },
     deletedAt: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: true,
+      defaultValue: null
     }
   },
   {

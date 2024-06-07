@@ -4,6 +4,6 @@ import express from "express";
 
 const router = express.Router();
 
-router.get("/identify", identify);
+router.post("/identify", identify);
 
 export default router;

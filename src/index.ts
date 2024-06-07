@@ -3,8 +3,7 @@ import morgan from "morgan";
 import cors from "cors";
 
 // Environment variables
-import dotenv from "dotenv";
-dotenv.config({ path: "./config/.env" });
+import "dotenv/config";
 
 // Routes import
 import router from "./router/index.ts";
