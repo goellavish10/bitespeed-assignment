@@ -1,33 +1,9 @@
-import { QueryTypes } from "sequelize";
-import { sequelize } from "../config/db";
-import { ContactExistsResult } from "../interfaces/query";
 import moment from "moment";
 import Contact from "./Contact";
 import { Op } from "sequelize";
 import { QueryResponse } from "../interfaces/response";
-import e from "express";
 
-export const contactExists = async (
-  email: string | null,
-  phoneNumber: string | null
-): Promise<boolean> => {
-  const query = `
-    SELECT EXISTS (
-      SELECT 1
-      FROM contacts
-      WHERE email = :email OR phoneNumber = :phoneNumber
-    ) AS contactEntryExists;
-  `;
-
-  const results: ContactExistsResult[] = await sequelize.query(query, {
-    replacements: { email, phoneNumber },
-    type: QueryTypes.SELECT
-  });
-
-  return results[0].contactEntryExists === 1;
-};
-
-export const createPrimaryContactEntry = async (
+export const identityReconcilationLogic = async (
   email: string,
   phoneNumber: string
 ): Promise<QueryResponse> => {
@@ -180,7 +156,6 @@ export const createPrimaryContactEntry = async (
     linkPrecedence: "primary"
   });
 
-  // Return details for primary contact
   return {
     primaryContactId: newContact.id,
     emails: [email],
