@@ -49,6 +49,19 @@ The demo is deployed on the free version of render. Render will spin down with i
 
 ## How to run locally?
 
+### Database Migration
+
+I have used Sequelize as ORM (MySQL)
+
+- Make sure you have a database (with name filled in .env) already created in your chosen MySQL instance (local/remote).
+- Run `npm install -g sequelize-cli`
+- Run `sequelize init`
+- This will instantiate a config.json in your current working directory.
+- Update the environment with the corresponding variables for your database.
+- Run `sequelize migration:create --name create_contacts_table`
+- This will instantiate a migration file in the current working directory replace the contents inside with the code in `migrationfile.js` in the root directory of the project.
+- Finally, execute `sequelize db:migrate --env production`. Here I have used `production` environment, use the environment where you have replaced the variables.
+
 ### With NPM/YARN
 
 - Setup .env file in root directory
