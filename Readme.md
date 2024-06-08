@@ -83,3 +83,5 @@ Let's connect at:
 [Linkedin](https://linkedin.com/in/goellavish10)
 
 Here's my resume: [Click](https://tinyurl.com/resumelavish)
+
+_PS: I am working as an intern at Xeno (ends this week), due to which I wasn't able to work during the day. the actual time to complete the project is less than the commit history would show._
