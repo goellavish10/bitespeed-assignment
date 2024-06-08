@@ -7,7 +7,7 @@
   "license": "MIT",
   "type": "commonjs",
   "scripts": {
-    "build": "tsc",
+    "build": "yarn && tsc",
     "start": "node dist/index.js",
     "dev": "nodemon src/index.ts"
   },
