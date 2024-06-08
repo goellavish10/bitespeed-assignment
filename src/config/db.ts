@@ -13,11 +13,6 @@ export const sequelize = new Sequelize(dbname, dbuser, dbpassword, {
 
 async function connectDB() {
   try {
-    console.log(
-      process.env.DATABASE_NAME as string,
-      process.env.DATABASE_USER as string,
-      process.env.DATABASE_PASSWORD as string
-    );
     await sequelize.authenticate();
     console.log("Database connected successfully!");
   } catch (error) {

@@ -3,8 +3,15 @@ export interface IdentifyResponse {
 }
 
 export interface ContactResponseObject {
-  primaryContactId: number;
-  emails: string[];
-  phoneNumbers: string[];
-  secondaryContactIds: number[];
+  primaryContactId: number | undefined;
+  emails: (string | undefined)[];
+  phoneNumbers: (string | undefined)[];
+  secondaryContactIds: (number | null)[];
+}
+
+export interface QueryResponse {
+  primaryContactId: number | undefined;
+  emails: (string | undefined)[];
+  phoneNumbers: (string | undefined)[];
+  secondaryContactIds: (number | null)[];
 }
