@@ -2,9 +2,9 @@ import { Request, Response } from "express";
 import {
   contactExists,
   createPrimaryContactEntry
-} from "../models/contact.service.ts";
-import { generateResponseObj } from "../utils/index.ts";
-import { IdentifyResponse, QueryResponse } from "../interfaces/response.ts";
+} from "../models/contact.service";
+import { generateResponseObj } from "../utils/index";
+import { IdentifyResponse, QueryResponse } from "../interfaces/response";
 
 export const identify = async (req: Request, res: Response) => {
   try {

@@ -1,10 +1,10 @@
 import { QueryTypes } from "sequelize";
-import { sequelize } from "../config/db.ts";
-import { ContactExistsResult } from "../interfaces/query.ts";
+import { sequelize } from "../config/db";
+import { ContactExistsResult } from "../interfaces/query";
 import moment from "moment";
-import Contact from "./Contact.ts";
+import Contact from "./Contact";
 import { Op } from "sequelize";
-import { QueryResponse } from "../interfaces/response.ts";
+import { QueryResponse } from "../interfaces/response";
 import e from "express";
 
 export const contactExists = async (

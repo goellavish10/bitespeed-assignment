@@ -6,12 +6,12 @@ import cors from "cors";
 import "dotenv/config";
 
 // Routes import
-import router from "./router/index.ts";
+import router from "./router/index";
 
 const app = express();
 
 // Setup DB
-import connectDB from "./config/db.ts";
+import connectDB from "./config/db";
 connectDB();
 
 // JSON Parser

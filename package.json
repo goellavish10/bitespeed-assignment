@@ -5,9 +5,10 @@
   "repository": "git@github.com:goellavish10/bitespeed-assignment.git",
   "author": "lavish <goellavish10@gmail.com>",
   "license": "MIT",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "build": "tsc",
+    "start": "node dist/index.js",
     "dev": "nodemon src/index.ts"
   },
   "dependencies": {

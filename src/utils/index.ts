@@ -1,4 +1,4 @@
-import { IdentifyResponse } from "../interfaces/response.ts";
+import { IdentifyResponse } from "../interfaces/response";
 
 export const generateResponseObj = (
   primaryContactId: number | undefined,
