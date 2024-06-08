@@ -24,8 +24,6 @@ export const contactExists = async (
     type: QueryTypes.SELECT
   });
 
-  console.log(results);
-
   return results[0].contactEntryExists === 1;
 };
 
@@ -39,19 +37,12 @@ export const createPrimaryContactEntry = async (
     },
     order: [["createdAt", "ASC"]]
   });
-  console.log("EXISTING CONTACT");
-  console.log(existingContacts);
   let primaryContactChanged: boolean = false;
   const onlyPrimaryContacts = existingContacts.filter(
     (contact) => contact.linkPrecedence === "primary"
   );
-  console.log("ONLY PRIMARY CONTACTS");
-  console.log(onlyPrimaryContacts);
-
   if (onlyPrimaryContacts.length >= 2) {
     onlyPrimaryContacts.splice(0, 1);
-    console.log("ONLY PRIMARY CONTACTS");
-    console.log(onlyPrimaryContacts);
     const updateContactPromises = onlyPrimaryContacts.map(async (contact) => {
       await Contact.update(
         {
@@ -74,15 +65,10 @@ export const createPrimaryContactEntry = async (
       },
       order: [["createdAt", "ASC"]]
     });
-    console.log("UPDATED CONTACTS");
-    console.log(updatedContacts);
 
     existingContacts = [...updatedContacts];
 
     primaryContactChanged = true;
-
-    console.log("EXISTING CONTACTS");
-    console.log(existingContacts);
   }
 
   if (existingContacts.length > 0) {
